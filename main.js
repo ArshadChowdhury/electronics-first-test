@@ -187,14 +187,12 @@ leftsideDrawer.appendChild(drawerItemsUl);
 const closeButton = document.createElement("button");
 closeButton.className = "close-button";
 
-// Append the close button to the left-side drawer
 leftsideDrawer.appendChild(closeButton);
 
 closeButton.addEventListener("click", () => {
   leftsideDrawer.classList.remove("open");
 });
 
-// Append the leftsideDrawer to the document body or another parent element
 document.body.appendChild(leftsideDrawer);
 
 dropdownContainers.forEach((container) => {
@@ -229,15 +227,8 @@ searchBox.addEventListener("click", () => {
     inputBox.style.display = "none";
     console.log(searchClose.style);
     searchClose.style.display = "none";
-    // dropdownMenus.forEach((menuItem) => {
-
-    // // You might want to restore the original content here
-    // // e.g., menuItem.innerHTML = "..."
-    // menuItem.style.display = "block"; // Show the menu item again
-    // });
   });
 
-  // Replace menu items with input box
   dropdownMenus.forEach((menuItem) => {
     menuItem.innerHTML = "";
     menuItem.appendChild(inputBox);

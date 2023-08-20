@@ -158,10 +158,12 @@ $large: 1300px;
 
         .dropdown-container {
           display: none;
-          background-color: white;
+          background-color: #adc4ce;
+          opacity: 80%;
           width: 42em;
           border-radius: 0.7em;
           position: absolute;
+          backdrop-filter: blur(100px);
           top: 8em;
 
           .dropdown-view {
@@ -181,8 +183,9 @@ $large: 1300px;
                   cursor: pointer;
                   padding: 1em;
                   &:hover {
-                    background-color: gray;
-                    border-radius: 3em;
+                    background-color: #445069;
+                    color: white;
+                    border-radius: 2em;
                   }
                 }
               }
