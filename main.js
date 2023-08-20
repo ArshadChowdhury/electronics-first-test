@@ -130,10 +130,6 @@ document.querySelector("#app").innerHTML = `
       </div>
     </div>
   </section>
-  <section class="trending-container">
-
-    <div></div>
-  </section>
 </main>
 `;
 
