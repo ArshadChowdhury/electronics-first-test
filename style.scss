@@ -1,115 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 
+$small: 300px;
+$medium: 1000px;
+$large: 1300px;
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Ubuntu", sans-serif;
 
+  .leftside-drawer {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Initial position off-screen */
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    z-index: 1000;
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+  }
+
+  .leftside-drawer.open {
+    left: 0;
+  }
+
   .main-container {
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: 90vh;
     background-image: url("herobanner.webp");
     background-size: cover;
-    clip-path: polygon(0 0, 0 40%, 50% 100%, 100% 90%, 100% 0);
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      height: 10em;
-      padding: 1em 2em;
-    }
-
-    .logo {
-      height: 4em;
-      width: 8em;
-      background-color: transparent;
-      cursor: pointer;
-    }
-
-    .rightside-buttons {
-      display: flex;
-      gap: 1em;
-      flex-direction: row;
-      align-items: baseline;
-      .user-profile-icon {
-        background-color: gray;
-        border-radius: 0.8em;
-        padding: 0.5em;
-        color: #090580;
-      }
-      .cart-and-profile-icons {
-        width: 1.9em;
-        cursor: pointer;
-      }
-    }
-
-    .navbar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1em;
-
-      .first-nav-items {
-        display: flex;
-        justify-items: center;
-        gap: 1.5em;
-        list-style: none;
-
-        li {
-          color: white;
-          font-size: 1em;
-          cursor: pointer;
-        }
-      }
-
-      .second-nav-items {
-        display: flex;
-        list-style: none;
-        align-items: center;
-        gap: 1em;
-        background-color: gray;
-        border-radius: 2em;
-
-        .nav-items-with-icons {
-          display: flex;
-          gap: 0.6em;
-          .other-icons {
-            height: 1.3em;
-            width: 1.3em;
-          }
-          .drop-down-icons {
-            color: grey;
-          }
-        }
-
-        .search-box {
-          background-color: orange;
-          border-radius: 50em;
-          padding: 2em;
-          position: relative;
-
-          .search-icon {
-            width: 1.3em;
-            position: absolute;
-            bottom: 1.3em;
-            right: 1.3em;
-          }
-        }
-
-        li {
-          background-color: transparent;
-          color: white;
-          padding: 0 0.5em;
-          cursor: pointer;
-          padding: 0.5em;
-        }
-        li:first-child {
-          margin-left: 2em;
-        }
-      }
-    }
+    clip-path: polygon(0 0, 0 60%, 300% 100%, 100% 20%, 100% 0);
+    background-color: #f94c10;
 
     .hero-container {
       max-width: 80rem;
@@ -121,9 +54,16 @@
         gap: 0.7em;
         color: white;
 
+        @media screen and (max-width: $large) {
+          margin: 0 1em;
+        }
+
         .hero-price {
           display: flex;
           align-items: center;
+          @media screen and (max-width: $large) {
+            align-items: start;
+          }
           gap: 1.5em;
 
           .hero-price-text {
@@ -148,6 +88,198 @@
           padding: 0.4em 0.6em;
           width: fit-content;
           font-size: 0.8em;
+        }
+      }
+    }
+
+    // .trending-container {
+    //   background-color: #f94c10;
+    //   height: 100vh;
+    //   width: 100vw;
+    // }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 10em;
+      padding: 1em 2em;
+
+      .mobile-nav {
+        width: 3em;
+        display: none;
+        position: absolute;
+        left: 0;
+        margin: 0 0.5em;
+        @media screen and (max-width: $medium) {
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: $medium) {
+        justify-content: end;
+      }
+
+      .logo {
+        height: 4em;
+        width: 8em;
+        background-color: transparent;
+        cursor: pointer;
+        @media screen and (max-width: $medium) {
+          margin: 0 1em;
+        }
+      }
+
+      .rightside-buttons {
+        display: flex;
+        gap: 1em;
+        flex-direction: row;
+        align-items: baseline;
+        .user-profile-icon {
+          background-color: gray;
+          border-radius: 0.8em;
+          padding: 0.5em;
+          color: #090580;
+        }
+        .cart-and-profile-icons {
+          width: 1.9em;
+          cursor: pointer;
+        }
+      }
+
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        position: relative;
+
+        @media screen and (max-width: $medium) {
+          display: none;
+        }
+
+        .dropdown-container {
+          display: none;
+          background-color: white;
+          width: 42em;
+          border-radius: 0.7em;
+          position: absolute;
+          top: 8em;
+
+          .dropdown-view {
+            margin: 0 1.2em;
+            padding: 1em 0 0;
+
+            .dropdown-items {
+              padding: 1em;
+              border-radius: 0.3em;
+
+              ul {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+
+                li {
+                  list-style: none;
+                  cursor: pointer;
+                  padding: 1em;
+                  &:hover {
+                    background-color: gray;
+                    border-radius: 3em;
+                  }
+                }
+              }
+            }
+          }
+          .dropdown-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: gray;
+            padding: 0.4em 1em;
+            border-radius: 0.3em;
+            color: white;
+
+            .view-all-button {
+              background: none;
+              outline: none;
+              border: none;
+              color: white;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .first-nav-items {
+          display: flex;
+          justify-items: center;
+          gap: 1.5em;
+          list-style: none;
+
+          li {
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+          }
+        }
+
+        .second-nav-items {
+          display: flex;
+          list-style: none;
+          align-items: center;
+          gap: 1em;
+          background-color: #96b6c5;
+          border-radius: 2em;
+
+          .nav-items-with-icons {
+            display: flex;
+            gap: 0.6em;
+            .other-icons {
+              height: 1.3em;
+              width: 1.3em;
+            }
+            .drop-down-icons {
+              color: gray;
+            }
+          }
+
+          .input-box {
+            padding: 1em 2em;
+            border-radius: 3em;
+            border: none;
+            width: 30em;
+            display: flex;
+          }
+
+          .search-box {
+            background-color: orange;
+            border-radius: 50em;
+            padding: 2em;
+            position: relative;
+
+            .search-icon {
+              width: 1.3em;
+              position: absolute;
+              bottom: 1.3em;
+              right: 1.3em;
+            }
+
+            .serch-bar-close {
+              width: 2.3em;
+              position: absolute;
+              bottom: 0.8em;
+              left: 4.3em;
+              display: none;
+            }
+          }
+
+          li {
+            background-color: transparent;
+            color: white;
+            padding: 0 0.5em;
+            cursor: pointer;
+            padding: 0.5em;
+          }
+          li:first-child {
+            margin-left: 2em;
+          }
         }
       }
     }

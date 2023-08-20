@@ -1,11 +1,14 @@
 import "./style.scss";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
 
 document.querySelector("#app").innerHTML = `
 <main class="main-container">
   <nav class="nav-container">
     <img src="/logo.webp" class="logo" alt="">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="mobile-nav">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+    </svg>
     <div class="navbar">
       <ul class="first-nav-items">
         <li>Trending</li>
@@ -14,7 +17,7 @@ document.querySelector("#app").innerHTML = `
         <li>Support 24/7</li>
       </ul>
       <ul class="second-nav-items">
-        <li class="nav-items-with-icons">
+       <li class="nav-items-with-icons">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="other-icons">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -25,7 +28,6 @@ document.querySelector("#app").innerHTML = `
             stroke="currentColor" class="other-icons drop-down-icons">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
-
         </li>
         <li class="nav-items-with-icons">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -33,29 +35,24 @@ document.querySelector("#app").innerHTML = `
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
           </svg>
-
           Playstation
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="other-icons drop-down-icons">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
-
         </li>
         <li class="nav-items-with-icons">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="other-icons">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
-
           Xbox
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="other-icons drop-down-icons">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
-
         </li>
         <li class="nav-items-with-icons">
-
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="other-icons">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -66,7 +63,6 @@ document.querySelector("#app").innerHTML = `
             stroke="currentColor" class="other-icons drop-down-icons">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
-
         </li>
         <li class="search-box">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -74,9 +70,39 @@ document.querySelector("#app").innerHTML = `
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="serch-bar-close">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </li>
       </ul>
+      <div class="dropdown-container">
+        <div class="dropdown-view">
+          <div class="dropdown-header">
+            <h4>Platforms</h4>
+            <button class="view-all-button">View all</button>
+          </div>
+          <div class="dropdown-items">
+            <ul>
+            </ul>
+          </div>
+        </div>
+        <div class="dropdown-view">
+          <div class="dropdown-header">
+            <h4>Prepaid Cards</h4>
+            <button class="view-all-button">View all</button>
+          </div>
+          <div class="dropdown-items">
+            <ul>
+              <li>Steam Gift Cards</li>
+              <li>IG Gift Cards</li>
+              <li>Blizzard Gift Cards</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+
     <aside class="rightside-buttons">
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -104,6 +130,116 @@ document.querySelector("#app").innerHTML = `
       </div>
     </div>
   </section>
+  <section class="trending-container">
 
+    <div></div>
+  </section>
 </main>
 `;
+
+const dropDownData = {
+  PC: [
+    "Steam",
+    "Ubisoft Connect",
+    "EA App",
+    "Battle.net",
+    "Rockstar",
+    "GOG.com",
+    "Microsoft Store",
+    "Epic",
+  ],
+  Playstation: ["Playstation Store", "PS Plus", "PS Now"],
+  Xbox: ["Xbox Store", "Xbox Game Pass"],
+  Nintendo: ["Nintendo eShop", "Switch Online"],
+};
+
+const dropdownItems = document.querySelector(".dropdown-items ul");
+const dropdownContainers = Array.from(
+  document.getElementsByClassName("nav-items-with-icons")
+);
+const dropdownMenus = document.querySelectorAll(".nav-items-with-icons");
+const searchBox = document.querySelector(".search-box");
+const searchClose = document.querySelector(".serch-bar-close");
+const inputBox = document.createElement("input");
+const leftsideDrawer = document.createElement("div");
+
+leftsideDrawer.className = "leftside-drawer";
+
+document.body.appendChild(leftsideDrawer);
+
+const mobileNavSvg = document.querySelector(".mobile-nav");
+
+mobileNavSvg.addEventListener("click", () => {
+  leftsideDrawer.classList.toggle("open");
+});
+
+const drawerItemsUl = document.createElement("ul");
+
+const drawerItemTitles = ["Home", "Profile", "Settings", "Logout"];
+
+drawerItemTitles.forEach((title) => {
+  const li = document.createElement("li");
+  li.textContent = title;
+  drawerItemsUl.appendChild(li);
+});
+
+leftsideDrawer.appendChild(drawerItemsUl);
+const closeButton = document.createElement("button");
+closeButton.className = "close-button";
+
+// Append the close button to the left-side drawer
+leftsideDrawer.appendChild(closeButton);
+
+closeButton.addEventListener("click", () => {
+  leftsideDrawer.classList.remove("open");
+});
+
+// Append the leftsideDrawer to the document body or another parent element
+document.body.appendChild(leftsideDrawer);
+
+dropdownContainers.forEach((container) => {
+  container.addEventListener("click", (event) => {
+    const selectedPlatform = container.textContent.trim();
+    const platformData = dropDownData[selectedPlatform];
+
+    if (platformData) {
+      dropdownItems.innerHTML = "";
+      platformData.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        dropdownItems.appendChild(listItem);
+      });
+
+      const dropdownContainer = document.querySelector(".dropdown-container");
+      dropdownContainer.style.display == "block"
+        ? (dropdownContainer.style.display = "none")
+        : (dropdownContainer.style.display = "block");
+    }
+  });
+});
+
+searchBox.addEventListener("click", () => {
+  inputBox.classList.add("input-box");
+  inputBox.setAttribute("type", "text");
+  inputBox.setAttribute("placeholder", "Minecraft, RPG, Multiplayer...");
+
+  searchClose.style.display = "block";
+
+  searchClose.addEventListener("click", () => {
+    inputBox.style.display = "none";
+    console.log(searchClose.style);
+    searchClose.style.display = "none";
+    // dropdownMenus.forEach((menuItem) => {
+
+    // // You might want to restore the original content here
+    // // e.g., menuItem.innerHTML = "..."
+    // menuItem.style.display = "block"; // Show the menu item again
+    // });
+  });
+
+  // Replace menu items with input box
+  dropdownMenus.forEach((menuItem) => {
+    menuItem.innerHTML = "";
+    menuItem.appendChild(inputBox);
+  });
+});
