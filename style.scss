@@ -39,10 +39,9 @@ $large: 1300px;
   .main-container {
     min-width: 100vw;
     min-height: 90vh;
-    background-image: url("herobanner.webp");
+    background-image: url("/herobanner.webp");
     background-size: cover;
     clip-path: polygon(0 0, 0 60%, 300% 100%, 100% 20%, 100% 0);
-    background-color: #f94c10;
 
     .hero-container {
       max-width: 80rem;
